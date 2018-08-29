@@ -3,8 +3,7 @@
       <div id="image"
            :style="{width:isOn?'25%':'15%'}"></div>
       <Menu @changeView="updateView"
-            @changeImgSize="updateImgSize"
-            :menuItems="menuItems"></Menu>
+            @changeImgSize="updateImgSize"></Menu>
       <component :is="view"></component>
     </div>
 </template>
@@ -21,14 +20,7 @@ export default {
   data(){
   	return{
   		view: "Home",
-      isOn:false,
-      menuItems:[
-            { isActive:true, text:'Home',type:'1', link:'#'},
-            { isActive:false, text:'AboutMe',type:'2', link:'#'},
-            { isActive:false, text:'Resume',type:'2', link:'#'},
-            { isActive:false, text:'Award',type:'2', link:'#'},
-            { isActive:false, text:'ContactMe',type:'2', link:'#'}
-        ]
+      isOn:false
   	}
   },
   components:{
@@ -90,7 +82,7 @@ export default {
 .ContactMe{
   padding:30px 50px;
   position:relative;
-  width:calc(100% - 140px);
+  width:calc(100% - 100px);
   left:0px;
   overflow-y:scroll;
 }

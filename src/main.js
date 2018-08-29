@@ -5,7 +5,8 @@ import App from './App'
 import router from './router'
 
 Vue.config.productionTip = false
-
+require('./assets/font.css')
+require('./assets/ScrollBlock.css')
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

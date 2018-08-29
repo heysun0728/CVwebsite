@@ -2,17 +2,30 @@
 	<div>
         <div class="menu1" 
              :style="{left:isOn?'0px':'-80px'}">
-    		<ul>
-    			<li><a v-for="item in menuItems" 
-    				   :href="item.link"
-    				   :class="{ active:item.isActive }"
-                       @mouseover="mouseOver(item)"
-                       @mouseleave="mouseLeave(item)">
-                       <img :src="imgsrc+item.text+item.type+'.png'"
-                            @click="setActive(item)">
-                    </a>
-                </li>
-            </ul>
+    		<div id="internal">
+                <ul>
+                    <li><a v-for="item in menuItems" 
+                        :href="item.link"
+                        :class="{ active:item.isActive }"
+                        @mouseover="mouseOver(item)"
+                        @mouseleave="mouseLeave(item)">
+                        <img :src="imgsrc+item.text+item.type+'.png'"
+                                @click="setActive(item)">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div id="external">
+                <ul>
+                    <li>
+                        <a v-for="item in external"
+                           :href="item.link"
+                           target="_blank">
+                            <img :src="imgsrc+item.text+'.png'">
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
         <div class="menu2">
             <div id="toggle"
@@ -28,12 +41,23 @@
 <script>
 export default {
   name: 'Menu1',
-  props: ['menuItems'],
   data(){
     return{
         imgsrc:'../../static/menu/',
         windowWidth: window.innerWidth,
-        isOn: true
+        isOn: true,
+        menuItems:[
+            { isActive:true, text:'Home',type:'1', link:'#'},
+            { isActive:false, text:'AboutMe',type:'2', link:'#'},
+            { isActive:false, text:'Resume',type:'2', link:'#'},
+            { isActive:false, text:'Award',type:'2', link:'#'},
+            { isActive:false, text:'ContactMe',type:'2', link:'#'}
+        ],
+        external:[
+            { text:'linkedin', link:'https://www.linkedin.com/in/ying-ran-wu-5620a1165/'},
+            { text:'github', link:'https://github.com/heysun0728'},
+            { text:'wordpress', link:'https://516codinghouse.wordpress.com/'}
+        ]
     }
   },
   methods:{
@@ -84,6 +108,7 @@ export default {
 </script>
 <style scope>
 .menu1{
+    position:relative;
     height: 100%;
     border-right:1px solid #DCDCDC;
     background-color:white;
@@ -91,15 +116,10 @@ export default {
     width:80px;
     overflow:hidden;
 }
-.menu1 ul{
-    padding:0;
-    margin:0;
-}
-.menu1 li{
-    list-style-type: none;
+#internal ul{
     padding: 15px 0;
 }
-.menu1 li a{
+#internal li a{
     margin: 15px 17.5px;
     display:block;
     color: white;
@@ -109,18 +129,29 @@ export default {
     border-radius:50%;
     background-color: #F5F5F5;
 }
-.menu1 li a:hover:not(.active) {
+#internal li a:hover:not(.active) {
     background-color: #AAAAAA;
     transition: .5s;
 }
-.menu1 .active {
+#internal .active {
     background-color: #444444;
     transition: .4s;
 }
-.menu1 img{
+#internal img{
     padding:13px;
     width:18px;
     height:17px;
+}
+#external img{
+    margin:7px 15px;
+    width:15px;
+    height:15px;
+}
+#external{
+    position:absolute;
+    bottom:3%;
+    left:18px;
+    width:80px;
 }
 
 @media screen and (max-width: 480px) {
@@ -132,9 +163,12 @@ export default {
         -webkit-transition: left 2s;
         transition: left 2s;
     } 
-    .menu1 li a{
+    #internal li a{
         background-color:white;
         border:2px solid #DCDCDC;
+    }
+    #external{
+        bottom:8%;
     }
 }
 .menu2{

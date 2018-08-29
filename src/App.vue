@@ -137,13 +137,6 @@ var config={
 </script>
 <style>
 
-@import url('https://fonts.googleapis.com/css?family=Pathway+Gothic+One');
-
-@import url('https://fonts.googleapis.com/css?family=Ropa+Sans');
-
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
-
-
 html{
   position:fixed;
   height: 100%;
@@ -151,18 +144,15 @@ html{
   margin: 0;
   padding: 0;
 }
-
 #app{
   position:absolute;
   height: 100%;
   width: 100%; 
   background-color: #F5F5F5;
 }
-
 #particles-js{
 	z-index:150;
 }
-
 #black-block{
   position:fixed;
   left:0;
@@ -172,8 +162,6 @@ html{
   background-color: #444444;
   clip-path: polygon(0 0, 100% 80%, 100% 100%, 0% 100%); 
 }
-
-
 canvas {
   display: block;
   vertical-align: bottom;
