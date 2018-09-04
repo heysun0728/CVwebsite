@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <router-view/>
-    <div id="black-block"></div>
-    <div id="particles-js"></div>
+    <!--<div id="black-block"></div>
+    <div id="particles-js"></div>-->
   </div>
 </template>
 
@@ -12,8 +12,10 @@ export default {
   name: 'App',
   mounted(){
     require('particles.js')
+    render: h => h(App)
     this.$nextTick(() => {
       this.initParticlesJS()
+
     })
   },
   methods: {
@@ -138,11 +140,12 @@ var config={
 <style>
 
 html{
-  position:fixed;
-  height: 100%;
-  width:100%;
+  /*height: 100vh;
+  width:100vw;
+  min-height: 100%;*/
   margin: 0;
   padding: 0;
+
 }
 #app{
   position:absolute;

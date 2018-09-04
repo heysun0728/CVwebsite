@@ -1,10 +1,10 @@
 <template>
-  <div class="Resume">
+  <div class="Experience">
   	<div id="scroll_block">
-  		<p class="title" id="title">RESUME</p>
+  		<p class="title" id="title">EXPERIENCE</p>
   		<div v-for="item in timeLines"
-  			 class="block" 
-  			 :id="item.text">
+  			 class="block"
+			v-bind:key="item.id">
   			<div id="timeLine">
   				<div id="line"></div>
   				<img :src="'../../static/Resume/'+ item.text +'.png'">

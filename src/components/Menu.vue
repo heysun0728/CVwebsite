@@ -49,8 +49,8 @@ export default {
         menuItems:[
             { isActive:true, text:'Home',type:'1', link:'#'},
             { isActive:false, text:'AboutMe',type:'2', link:'#'},
-            { isActive:false, text:'Resume',type:'2', link:'#'},
-            { isActive:false, text:'Award',type:'2', link:'#'},
+            { isActive:false, text:'Experience',type:'2', link:'#'},
+            { isActive:false, text:'Project',type:'2', link:'#'},
             { isActive:false, text:'ContactMe',type:'2', link:'#'}
         ],
         external:[
@@ -169,6 +169,9 @@ export default {
     }
     #external{
         bottom:8%;
+    }
+    .index #image{
+     display:block;
     }
 }
 .menu2{

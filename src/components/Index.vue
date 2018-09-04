@@ -11,8 +11,8 @@
 import Menu from './Menu.vue'
 import Home from './Home.vue'
 import AboutMe from './AboutMe.vue'
-import Resume from './Resume.vue'
-import Award from './Award.vue'
+import Experience from './Experience.vue'
+import Project from './Project.vue'
 import ContactMe from './ContactMe.vue'
 
 export default {
@@ -27,8 +27,8 @@ export default {
     'Menu':Menu,
     'Home':Home,
     'AboutMe': AboutMe,
-    'Resume':Resume,
-    'Award':Award,
+    'Experience':Experience,
+    'Project':Project,
     'ContactMe':ContactMe
   },
   methods:{
@@ -45,14 +45,16 @@ export default {
 <style>
 .index{
   position:fixed;
-  margin: 40px 10%;
-  width: 80%;
-  height: calc(100% - 80px);
+  /*margin: 40px 10%;*/
+  width: 100vw;
+  height: 100vh;/*calc(100% - 80px);*/
   box-shadow:4px 4px 40px 0.5px #444444;
   overflow:hidden;
   background-color:white;
   display: flex;
   z-index:99;
+    display:none;
+
 }
 .index #image{
   position:relative;
@@ -61,6 +63,7 @@ export default {
   border-right:1px solid #F5F5F5;
   -webkit-transition: width 2s;
   transition: width 2s;
+  display:none;
 }
 .toggle-leave,
 .toggle-enter-to{
@@ -75,14 +78,14 @@ export default {
 	opacity:0;
 }
 
-.home,
+.Home,
 .AboutMe,
-.Resume,
-.Award,
+.Project,
+.Experience,
 .ContactMe{
-  padding:30px 50px;
+  padding:40px 50px;
   position:relative;
-  width:calc(100% - 100px);
+  width:calc(100vw - 100px);
   left:0px;
   overflow-y:scroll;
 }
@@ -92,19 +95,18 @@ export default {
     width: 7px;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 650px) {
   .index{
     margin:0;
-    //margin: 15px 7%;
     width: 100%;
     height: 100%;
   } 
-  .home,
   .AboutMe,
   .Resume,
   .Award,
   .ContactMe{
     padding:20px;   
   }
+  
 }
 </style>

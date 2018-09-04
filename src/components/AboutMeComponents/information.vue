@@ -1,7 +1,8 @@
 <template>
 <div class="block" id="information">
     <p class="title" id="subtitle">Personal Information</p>
-    <ul><li v-for="item in Info">
+    <ul><li v-for="item in Info"
+            v-bind:key="item.id">
         <p id="subject">{{item.title}}</p>
         <p id="content">{{item.content}}</p>
     </li></ul>
